@@ -31,7 +31,7 @@ public class WebhoseQuery {
         if (exclude != null) {
             terms.add("-(" + exclude + ")");
         }
-        addTerm(terms, siteTypes, "OR", "siteType");
+        addTerm(terms, siteTypes, "OR", "site_type");
         addTerm(terms, language, "OR", "language");
         addTerm(terms, sites, "OR", "site");
         if (title != null) {
