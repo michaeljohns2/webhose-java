@@ -45,4 +45,7 @@ public class WebhoseThread {
 
     @Key("spam_score")
     public double spamScore;
+
+    @Key("main_image")
+    public String mainImage;
 }

@@ -2,6 +2,8 @@ package com.buzzilla.webhose.client;
 
 import com.google.api.client.util.Key;
 
+import java.util.List;
+
 /**
  * @author Israel Tsadok
  */
@@ -31,6 +33,17 @@ public class WebhosePost {
     @Key
     public String language;
 
+    @Key("external_links")
+    public List<String> externalLinks;
+
+    @Key
+    public List<String> persons;
+
+    @Key
+    public List<String> locations;
+
+    @Key
+    public List<String> organizations;
 
     @Key
     public WebhoseThread thread;

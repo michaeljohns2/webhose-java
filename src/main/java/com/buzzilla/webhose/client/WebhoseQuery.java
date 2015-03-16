@@ -16,6 +16,9 @@ public class WebhoseQuery {
     public final List<SiteType> siteTypes = new ArrayList<SiteType>();
     public final List<String> language = new ArrayList<String>();
     public final List<String> sites = new ArrayList<String>();
+    public final List<String> persons = new ArrayList<String>();
+    public final List<String> locations = new ArrayList<String>();
+    public final List<String> organizations = new ArrayList<String>();
     public String title;
     public String bodyText;
 
@@ -34,6 +37,9 @@ public class WebhoseQuery {
         addTerm(terms, siteTypes, "OR", "site_type");
         addTerm(terms, language, "OR", "language");
         addTerm(terms, sites, "OR", "site");
+        addTerm(terms, persons, "OR", "person");
+        addTerm(terms, locations, "OR", "location");
+        addTerm(terms, organizations, "OR", "organization");
         if (title != null) {
             terms.add("title:(" + title + ")");
         }
@@ -58,7 +64,11 @@ public class WebhoseQuery {
             if(fieldName != null) {
                 sb.append(fieldName).append(":");
             }
-            sb.append(part);
+            if(part.toString().contains(" ")) {
+                sb.append('"').append(part).append('"');
+            } else {
+                sb.append(part);
+            }
         }
         sb.append(")");
         terms.add(sb.toString());
