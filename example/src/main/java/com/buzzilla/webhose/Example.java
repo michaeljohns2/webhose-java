@@ -2,7 +2,6 @@ package com.buzzilla.webhose;
 
 import com.buzzilla.webhose.client.WebhoseClient;
 import com.buzzilla.webhose.client.WebhosePost;
-import com.buzzilla.webhose.client.WebhoseQuery;
 import com.buzzilla.webhose.client.WebhoseResponse;
 
 import java.io.IOException;
@@ -21,13 +20,9 @@ public class Example
 
         WebhoseClient client = new WebhoseClient(args[0]);
 
-        WebhoseQuery q = new WebhoseQuery();
-        q.persons.add("barack obama");
-        q.siteTypes.add(WebhoseQuery.SiteType.news);
-
-        WebhoseResponse response = client.search(q);
+        WebhoseResponse response = client.search("site:telegraph.co.uk is_first:true");
         for (WebhosePost post : response.posts) {
-            System.out.println(post.thread.mainImage);
+            System.out.println(post.author);
         }
     }
 }
