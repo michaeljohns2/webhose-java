@@ -60,12 +60,16 @@ public class WebhoseClient {
     }
 
     public WebhoseResponse search(String query) throws IOException {
+        return search(query, null);
+    }
+
+    public WebhoseResponse search(String query, Long ts) throws IOException {
         WebhoseUrl url = new WebhoseUrl("https://webhose.io/search");
         url.token = this.apiKey;
         url.query = query;
+        url.fromTimestamp = ts;
 
         HttpRequest request = requestFactory.buildGetRequest(url);
-
         return request.execute().parseAs(WebhoseResponse.class);
     }
 
