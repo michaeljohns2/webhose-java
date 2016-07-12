@@ -16,16 +16,6 @@ used on every request. To obtain an API key, create an account at
 https://webhose.io/auth/signup, and then go into
 https://webhose.io/dashboard to see your token.
 
-## Installing
-Using maven:
-
-```xml
-    <dependency>
-        <groupId>com.buzzilla</groupId>
-        <artifactId>webhose</artifactId>
-        <version>0.1.1</version>
-    </dependency>
-```
 
 ## Use the API
 
